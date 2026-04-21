@@ -1,1 +1,1 @@
-![CI](https://github.com/Farhat-Fatima-Zahra07/tp-cicd-actions/actions/workflows/ci.yml/badge.svg)# tp-cicd-actions
+![CI](https://github.com/Farhat-Fatima-Zahra07/tp-cicd-actions/actions/workflows/ci.yml/badge.svg)
