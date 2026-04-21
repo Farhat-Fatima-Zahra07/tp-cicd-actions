@@ -1,15 +1,12 @@
-name: CI - Build & Test
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_call:
-
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
 
     strategy:
       matrix:
@@ -23,7 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
+          cache: 'npm'
 
       - name: Installer les dépendances
         run: npm ci
@@ -40,5 +37,3 @@ jobs:
         with:
           name: coverage-report
           path: coverage/
-          retention-days: 7
-       
